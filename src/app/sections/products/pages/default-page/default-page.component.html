@@ -1,0 +1,15 @@
+<div style="margin-bottom: 16px;">
+    <button nz-button (click)="newTab()">ADD</button>
+</div>
+<nz-tabset [(nzSelectedIndex)]="index" nzType="editable-card" nzHideAdd (nzClose)="closeTab($event)">
+    <nz-tab *ngFor="let tab of tabs; let i = index" [nzClosable]="i > 1" [nzTitle]="tab">
+        <div class="products-search">
+            <nz-input-group>
+                <input nz-input [(ngModel)]="inputFilter" (ngModelChange)="applyFilter()" class="input-filter" type="text" placeholder="Input product name" />
+            </nz-input-group>
+            <nz-list nzBordered nzSize="small" class="list">
+                <nz-list-item *ngFor="let item of filteredProducts" (click)="openProduct(item)">{{ item.title }}</nz-list-item>
+            </nz-list>
+        </div>
+    </nz-tab>
+</nz-tabset>

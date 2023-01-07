@@ -1,0 +1,10 @@
+.products-search {
+  input {
+    width: 100%;
+  }
+}
+
+::ng-deep .ant-list-items {
+  background: #fff !important;
+  cursor: pointer;
+}
