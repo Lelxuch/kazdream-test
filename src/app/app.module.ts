@@ -15,6 +15,7 @@ import {NzLayoutModule} from 'ng-zorro-antd/layout';
 import {NzMenuModule} from 'ng-zorro-antd/menu';
 import {NzMessageModule} from 'ng-zorro-antd/message';
 import {NzBreadCrumbModule} from 'ng-zorro-antd/breadcrumb';
+import {NzTypographyModule} from 'ng-zorro-antd/typography';
 
 import {AppRoutingModule} from './app-routing.module';
 import {AppComponent} from './app.component';
@@ -39,6 +40,7 @@ registerLocaleData(en);
     NzMenuModule,
     NzMessageModule,
     NzBreadCrumbModule,
+    NzTypographyModule,
     NgxsModule.forRoot([ProductState]),
     NgxsLoggerPluginModule.forRoot(),
     NgxsReduxDevtoolsPluginModule.forRoot(),

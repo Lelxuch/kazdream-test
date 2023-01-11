@@ -1,0 +1,44 @@
+<div class="product-content">
+
+    <div class="row product-info-section">
+        <div class="product-detail">
+            <div class="product-category">
+                <h4 nz-typography nzType="secondary">{{ product.category }}</h4>
+            </div>
+            <h1 nz-typography class="product-title">{{ product.title }}</h1>
+            <p class="product-description">
+                {{ product.description }}
+            </p>
+        </div>
+        <div class="product-image">
+            <img [src]="product.image">
+        </div>
+    </div>
+
+    <div class="row product-price-section">
+        <div class="price-item" *ngFor="let shop of shops; let shopNumber = index">
+            <div class="shop">
+                <div class="location"></div>
+                <h4 nz-typography>Shop name #{{shopNumber}}</h4>
+            </div>
+            <div class="price">
+                <h3 nz-typography>{{ product.price }}$</h3>
+            </div>
+        </div>
+    </div>
+
+    <div class="row product-rating-section">
+        <div class="rating-item" *ngFor="let rate of ratingCount;">
+            <div class="user">
+                <div class="photo"></div>
+                <div>
+                    <h4 nz-typography>Username</h4>
+                </div>
+            </div>
+            <div class="rating">
+                <h3 nz-typography>{{ product.rating.rate }}</h3>
+            </div>
+        </div>
+    </div>
+
+</div>

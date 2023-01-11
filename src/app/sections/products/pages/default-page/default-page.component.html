@@ -13,9 +13,7 @@
             </nz-list>
         </div>
 
-        <div class="product-content" *ngIf="product.id != -1">
-
-        </div>
+        <app-product-info *ngIf="product.id != -1" [product]="product"></app-product-info>
 
     </nz-tab>
 </nz-tabset>
