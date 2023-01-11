@@ -2,6 +2,16 @@
   min-height: 100vh;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  color: #fff;
+}
+
 [nz-menu] {
   line-height: 64px;
 }

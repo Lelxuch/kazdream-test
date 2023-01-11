@@ -1,9 +1,63 @@
-import { Injectable } from '@angular/core';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
+
+import {IUser} from '../models/user.models';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor() { }
+  private authDataKey = "authData";
+  private tokenKey = "token"
+
+  constructor(
+    private http: HttpClient,
+    private router: Router,
+  ) { }
+
+  get currentUser(): any {
+    return JSON.parse(<string>sessionStorage.getItem(this.authDataKey));
+  }
+
+  get token(): string | null {
+    return sessionStorage.getItem(this.tokenKey) as string;
+  }
+
+  get isLogged(): boolean {
+    return !!this.token;
+  }
+
+  login(user: IUser) {
+    const formData = new FormData();
+    formData.append('username', user.username);
+    formData.append('password', user.password);
+
+    // return this.http.post(`/api/`, formData).pipe(
+    //   map((response: any) => {
+    //     sessionStorage.setItem(this.authDataKey, JSON.stringify(response.data));
+    //     sessionStorage.setItem(this.tokenKey, response.token.accessToken);
+    //     return response;
+    //   })
+    // )
+
+    let loggedUser: any = {
+      id: 1,
+      username: 'test',
+    }
+
+    sessionStorage.setItem(this.authDataKey, JSON.stringify(loggedUser));
+    sessionStorage.setItem(this.tokenKey, "token");
+
+    this.router.navigateByUrl('/products');
+
+    return this.currentUser;
+  }
+
+  logout() {
+    sessionStorage.clear();
+    this.router.navigateByUrl('/login');
+  }
+
 }

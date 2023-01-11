@@ -1,9 +1,9 @@
 <nz-layout class="layout-outer">
-    <nz-header>
-        <ul nz-menu nzTheme="dark" nzMode="horizontal">
-            <li nz-menu-item>nav 1</li>
-            <li nz-menu-item>nav 2</li>
-            <li nz-menu-item>nav 3</li>
+    <nz-header class="header">
+        <h1 nz-typography class="logo">KazDream</h1>
+        <ul nz-menu nzTheme="dark" nzMode="horizontal" class="menu">
+            <li nz-menu-item routerLink="/products">Products</li>
+            <li nz-menu-item (click)="logout()" style="margin-left: 24px">Logout</li>
         </ul>
     </nz-header>
     <nz-content>

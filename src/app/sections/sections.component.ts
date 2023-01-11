@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+
+import {AuthService} from '../core/services/auth.service';
 
 @Component({
   selector: 'app-sections',
@@ -7,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SectionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private authService: AuthService
+  ) { }
 
   ngOnInit(): void {
+  }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 }
