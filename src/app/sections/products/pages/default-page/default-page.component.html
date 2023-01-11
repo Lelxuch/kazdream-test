@@ -6,7 +6,7 @@
 
         <div class="products-search">
             <nz-input-group>
-                <input nz-input [(ngModel)]="inputFilter" (ngModelChange)="applyFilter()" class="input-filter" type="text" placeholder="Input product name" />
+                <input nz-input [(ngModel)]="inputFilter" (ngModelChange)="applyFilter()" class="input-filter" type="text" placeholder="Enter product name" />
             </nz-input-group>
             <nz-list nzBordered nzSize="small" class="list">
                 <nz-list-item *ngFor="let item of filteredProducts" (click)="openProduct(i, item)">{{ item.title }}</nz-list-item>

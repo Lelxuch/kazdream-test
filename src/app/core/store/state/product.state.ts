@@ -37,15 +37,6 @@ export class ProductState {
     });
   }
 
-  @Action(UpdateMaxId)
-  updateMaxId(ctx: StateContext<ProductStateModel>, action: UpdateMaxId) {
-    const state = ctx.getState();
-    ctx.setState({
-      ...state,
-      maxId: action.payload
-    });
-  }
-
   @Action(UpdateProduct)
   updateProduct(ctx: StateContext<ProductStateModel>, action: UpdateProduct) {
     const state = ctx.getState();
@@ -65,6 +56,15 @@ export class ProductState {
     ctx.setState({
       ...state,
       products: state.products.filter(product => product.secId != action.payload)
+    });
+  }
+
+  @Action(UpdateMaxId)
+  updateMaxId(ctx: StateContext<ProductStateModel>, action: UpdateMaxId) {
+    const state = ctx.getState();
+    ctx.setState({
+      ...state,
+      maxId: action.payload
     });
   }
 }
